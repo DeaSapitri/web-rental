@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+  margin-top: -5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 0px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.tab {
+  margin-left: 30px;
+}
+</style>
+</head>
+<body>
+  <div class="tab">
+
+<h2>Rental Mobil</h2>
+<p align="center">Detail Mobil</p>
+
+<div class="row">
+  <div class="column">
+    <table border="1">
+      <tr>
+        <td rowspan="5"></td><div class="w3-container">
+          <div class="w3-card-4" style="width: 100%;">
+            <img src="alphard3.jfif" alt="Alps" style="width: 100%;">
+            <div class="w3-container w3-center">
+              <p align="center">Alphard</p>
+            </div>
+            </div>
+            </div>
+      </tr>
+    </table>
+  </div>
+  <div class="column">
+    <table border="1">
+      <tr>
+        <th>NAMA</th>
+        <th>Alphard</th>
+      </tr>
+      <tr>
+        <td>JENIS</td>
+        <td>Multi-Purpose Whicle</td>
+      </tr>
+      <tr>
+        <td>TYPE</td>
+        <td>Alphard 2.3 HEV Premium Color</td>
+      </tr>
+      <tr>
+        <td>HARGA</td>
+        <td>Rp.1,711 Millyar</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
