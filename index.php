@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,7 +140,15 @@ body, html {
   <a class="active" href="#home">Home</a>
   <a href="datamobil.html">Data Mobil</a>
   <a href="datacostumer.html">Data Costumer</a>
-  <a href="login.html" class="split">Login</a>
+  <?php
+  if (isset($_SESSION['username'])) {
+
+    echo '<a href="logout.php"> <i data-feather="log-out"></i> Logout</a>';
+  } else{
+    
+    echo '<a href="login.php"> <i data-feather="log-in"></i> Login</a>';
+  }
+  ?>
 </div>
 
 <div style="padding-left:16px">
@@ -152,7 +165,7 @@ body, html {
    <div class="nav">
     <a href="datamobil.html" class="btn">Data Mobil</a>
     <a href="datacostumer.html" class="btn">Data Costumer</a>
-    <a href="login" class="btn">Login</a>
+    <a href="login.php" class="btn">Login</a>
   </div>
   <div class="section one" id="section1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
