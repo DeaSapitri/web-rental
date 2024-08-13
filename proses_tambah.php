@@ -1,14 +1,13 @@
 <?php
 include 'koneksi.php';
 
-$merk_mobil = $_POST['merk_mobil'];
-$warna = $_POST['warna'];
-$plat = $_POST['plat'];
-$cc = $_POST['cc'];
+$id_mobil = $_POST['id_mobil'];
+$nama_mobil = $_POST['nama_mobil'];
 $tahun = $_POST['tahun'];
-$id_jenis = $_POST['id_jenis'];
+$warna = $_POST['warna'];
+$harga = $_POST['harga'];
 
-$sql = "INSERT INTO mobil (merk_mobil, warna, plat, cc, tahun, id_jenis) VALUES ('$merk_mobil', '$warna', '$plat', $cc, $tahun, $id_jenis)";
+$sql = "INSERT INTO mobil (id_mobil, nama_mobil, tahun, warna, harga) VALUES ('$id_mobil', '$nama_mobil', '$tahun', $warna, $harga)";
 
 if ($conn->query($sql) === TRUE) {
     echo "Data berhasil ditambahkan. <a href='index.php'>Kembali</a>";
