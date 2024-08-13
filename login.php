@@ -1,3 +1,30 @@
+<?php
+include 'koneksi.php';
+session_start();
+ 
+if (isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+ 
+if (isset($_POST['submit'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = hash('sha256', $_POST['password']); // Hash the input password using SHA-256
+ 
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+ 
+    if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
+        header("Location: index.php");
+        exit();
+    } else {
+        echo "<script>alert('Email atau password Anda salah. Silakan coba lagi!')</script>";
+    }
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,7 +51,7 @@
 <a href="#">Forgot password?</a>
 </div>
 <button type="submit" class="btn">Login</button>
-<a href="index.html">
+<a href="index.php">
 <div class="register-link">
 <p>Don't have an account?<a href="#">Register</a></p>
 </div>
