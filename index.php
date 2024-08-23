@@ -5,7 +5,7 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-<head>
+<>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
@@ -133,6 +133,15 @@ body, html {
     }
 
 </style>
+<script>
+  function confirmLogout(event) {
+    event.preventDefault();
+    var confirmLogout = confirm("Apakah Anda yakin ingin logout?");
+    if (confirmLogout) {
+      window.location.href = event.target.href;
+    }
+  }
+</script>
 </head>
 <body>
 
@@ -140,10 +149,11 @@ body, html {
   <a class="active" href="#home">Home</a>
   <a href="datamobil.html">Data Mobil</a>
   <a href="datacostumer.html">Data Costumer</a>
+  <a href="tambah_transaksi.php">Data Transaksi</a>
   <?php
   if (isset($_SESSION['username'])) {
 
-    echo '<a href="logout.php"> <i data-feather="log-out"></i> Logout</a>';
+    echo '<a href="logout.php" onclick="confirmLogout(event)"> <i data-feather="log-out"></i> Logout</a>';
   } else{
     
     echo '<a href="login.php"> <i data-feather="log-in"></i> Login</a>';

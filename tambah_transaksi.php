@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
 <body>
-    <h1>Halaman Selanjutnya</h1>
-    <a href="index.php" class="btns">Kembali</a>
+    
 </body>
 </html>
