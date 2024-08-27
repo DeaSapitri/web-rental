@@ -3,11 +3,11 @@ include 'koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_mobil = $_POST['id_mobil'];
-    $id_customer = $_POST['id_customer'];
+    $id_costumer = $_POST['id_costumer'];
     $tgl_sewa = $_POST['tgl_sewa'];
     $tgl_kembali = $_POST['tgl_kembali'];
 
-    $sql = "INSERT INTO transaksi (id_mobil, id_customer, tgl_sewa, tgl_kembali) VALUES ('$id_mobil', '$id_customer', '$tgl_sewa', '$tgl_kembali')";
+    $sql = "INSERT INTO transaksi (id_mobil, id_costumer, tgl_sewa, tgl_kembali) VALUES ('$id_mobil', '$id_costumer', '$tgl_sewa', '$tgl_kembali')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Transaksi berhasil ditambahkan!";
@@ -18,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $sql_mobil = "SELECT id_mobil, nama_mobil FROM mobil";
 $result_mobil = $conn->query($sql_mobil);
 
-$sql_customer = "SELECT id_customer, nama FROM customer";
-$result_customer = $conn->query($sql_customer);
+$sql_costumer = "SELECT id_costumer, nama_costumer FROM costumer";
+$result_costumer = $conn->query($sql_costumer);
 ?>
 <html>
     <head>
@@ -64,10 +64,10 @@ $result_customer = $conn->query($sql_customer);
             <?php } ?>
         </select><br>
         
-        Nama Customer: 
-        <select name="id_customer">
-            <?php while($row = $result_customer->fetch_assoc()) { ?>
-                <option value="<?php echo $row['id_customer']; ?>"><?php echo $row['nama']; ?></option>
+        Nama costumer: 
+        <select name="id_costumer">
+            <?php while($row = $result_costumer->fetch_assoc()) { ?>
+                <option value="<?php echo $row['id_costumer']; ?>"><?php echo $row['nama_costumer']; ?></option>
             <?php } ?>
         </select><br>
 

@@ -53,6 +53,9 @@
       <label for="warna">Warna</label>
       <input type="text" id="warna" name="warna" required>
 
+      <label for="harga">harga</label>
+      <input type="text" id="harga" name="harga" required>
+
       
 
       <label for="tahun">Tahun</label>
