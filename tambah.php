@@ -46,20 +46,19 @@
 <body>
   <div class="container">
     <h2>Tambah Mobil</h2>
-    <form action="aksi_tambahmobil.php" method="post">
-      <label for="nama_mobil">nama_mobil</label>
+    <form action="proses_tambah.php" method="post">
+      <label for="nama_mobil">Merk</label>
       <input type="text" id="nama_mobil" name="nama_mobil" required>
 
-      <label for="tahun">tahun</label>
-      <input type="text" id="tahun" name="tahun" required>
-
-      <label for="warna">warna</label>
+      <label for="warna">Warna</label>
       <input type="text" id="warna" name="warna" required>
 
-      <label for="harga">harga</label>
-      <input type="text" id="harga" name="harga" required>
+      
 
-      <label for="kategori">kategori</label>
+      <label for="tahun">Tahun</label>
+      <input type="number" id="tahun" name="tahun" required>
+
+      <label for="id_kategori">Jenis</label>
       <select id="id_kategori" name="id_kategori" required>
         <?php
         include 'koneksi.php';
@@ -75,10 +74,10 @@
         $conn->close();
         ?>
       </select>
-      
-      <input type="submit" value="Tambah" />
-      <a href="datamobil.html"><input type='button' value='batal' />
+
+      <input type="submit" value="Tambah">
     </form>
+    <br>
     <a class="btn-back" href="index.php">Kembali</a>
   </div>
 </body>
