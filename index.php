@@ -226,14 +226,6 @@ session_start();
     <p>pelayanan terbaik</p>
   </div>
 
-
-
-
-
-
-
-  <h2>Data Mobil</h2>
-
 </body>
 
 </html>
