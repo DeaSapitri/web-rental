@@ -8,11 +8,11 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
  
-// Attempt delete query execution
-$sql = "DELETE FROM kendaraan WHERE first_name='John'";
+// Attempt update query execution
+$sql = "UPDATE persons SET email='peterparker_new@mail.com' WHERE id=1";
 if(mysqli_query($link, $sql)){
-    echo "Records were deleted successfully.";
-} else{
+    echo "Records were updated successfully.";
+} else {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
  
