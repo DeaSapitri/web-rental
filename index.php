@@ -200,7 +200,7 @@ session_start();
 
   <div class="topnav">
     <a class="active" href="#home">Home</a>
-    <a href="datamobil.html">Data Mobil</a>
+    <a href="datamobil2.php">Data Mobil</a>
     <a href="datacostumer.html">Data Costumer</a>
     <a href="tambah_transaksi.php">Data Transaksi</a>
     <?php

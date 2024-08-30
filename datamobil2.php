@@ -53,6 +53,27 @@
             <p>Rp.100.000.000</p>
             <a class="tombol" href="">Detail</a>
         </div>
+
+        <div class="card">
+            <img src="alphard2.jpg" alt="" class="gambar">
+            <h3>Alphard</h3>
+            <p>Rp.100.000.000</p>
+            <a class="tombol" href="">Detail</a>
+        </div>
+
+        <div class="card">
+            <img src="mercedes7.webp" alt="" class="gambar">
+            <h3>Mercedes Benz</h3>
+            <p>Rp.100.000.000</p>
+            <a class="tombol" href="">Detail</a>
+        </div>
+
+        <div class="card">
+            <img src="brio2.png" alt="" class="gambar">
+            <h3>Brio</h3>
+            <p>Rp.100.000.000</p>
+            <a class="tombol" href="">Detail</a>
+        </div>
     </div>
 </body>
 </html>
