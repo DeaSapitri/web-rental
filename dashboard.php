@@ -128,13 +128,42 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             display: inline-block;
             margin-top: 16px;
         }
+
+        body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .container {
+                padding: 16px;
+            }
+            input[type=text], input[type=number], select {
+                width: 100%;
+                padding: 12px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
     </style>
 </head>
 
 <body>
 
     <div class="sidebar">
-        <a href="#dashboard">Dashboard</a>
+        <a href="dashboard.php">Dashboard</a>
         <a href="tambah1.php">Data Mobil</a>
         <a href="datacostumer.html">Data Customer</a>
         <a href="tambah_transaksi.php">Data Transaksi</a>
@@ -161,48 +190,9 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <h1>Admin Dashboard</h1>
         <p>Selamat datang di halaman admin.</p>
         <!--  konten admin -->
-        <h1>Tambah Mobil</h1>
-        <div class="container">
-            <form action="proses_tambah.php" method="post" enctype="multipart/form-data">
-                <label for="nama_mobil">Merk</label>
-                <input type="text" id="nama_mobil" name="nama_mobil" required>
-
-                <label for="warna">Warna</label>
-                <input type="text" id="warna" name="warna" required>
-
-                <label for="tahun">Tahun</label>
-                <input type="number" id="tahun" name="tahun" required>
-
-                <label for="id_kategori">Jenis</label>
-                <select id="id_kategori" name="id_kategori" required>
-                    <?php
-                    include 'koneksi.php';
-                    $sql = "SELECT id_kategori, nama_kategori FROM kategori";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<option value="' . $row['id_kategori'] . '">' . $row['nama_kategori'] . '</option>';
-                        }
-                    } else {
-                        echo '<option value="">Tidak ada jenis tersedia</option>';
-                    }
-                    $conn->close();
-                    ?>
-                </select>
-
-                <label for="harga">Harga</label>
-                <input type="number" name="harga" id="harga" required>
-
-                <label for="gambar">Upload Gambar</label>
-                <input type="file" id="gambar" name="gambar" required>
-
-                <input type="submit" value="Tambah">
-            </form>
-            <br>
-            <a class="btn-back" href="dashboard.php">Kembali</a>
-        </div>
+        
     </div>
-    </div>
+  
 
     <script>
         function confirmLogout(event) {

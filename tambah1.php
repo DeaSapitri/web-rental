@@ -1,12 +1,51 @@
+<?php
+session_start();
+include 'koneksi.php';
+
+
+if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Admin - Tambah Mobil</title>
+    <title>Halaman Admin</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #4b7da3;
+            padding-top: 20px;
+            overflow-x: hidden;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f2f2f2;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -17,7 +56,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #333;
+            background-color: #4b7da3;
             padding-top: 20px;
             overflow-x: hidden;
         }
@@ -89,16 +128,45 @@
             display: inline-block;
             margin-top: 16px;
         }
+
+        body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .container {
+                padding: 16px;
+            }
+            input[type=text], input[type=number], select {
+                width: 100%;
+                padding: 12px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
     </style>
 </head>
 
 <body>
 
     <div class="sidebar">
-        <a href="#dashboard">Dashboard</a>
-        <a href="data_mobil.php">Data Mobil</a>
-        <a href="#customer">Data Customer</a>
-        <a href="tambahtrans.php">Data Transaksi</a>
+        <a href="dashboard.php">Dashboard</a>
+        <a href="datamobil.php">Data Mobil</a>
+        <a href="datacostumer.html">Data Customer</a>
+        <a href="tambah_transaksi.php">Data Transaksi</a>
         <a href="logout.php" onclick="confirmLogout(event)">Logout</a>
     </div>
 
@@ -106,13 +174,12 @@
         <div class="navbar">
             <div class="menu">
                 <a href="index.php">Home</a>
-                <a href="index.php">Mobil</a>
+                <a href="datamobil2.php">Mobil</a>
                 <a href="about.php">About</a>
             </div>
             <div class="user-actions">
                 <div class="username">
                     <?php
-                    session_start();
                     if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
                         echo 'Hai, ' . $_SESSION['username'];
                     }
@@ -120,7 +187,7 @@
                 </div>
             </div>
         </div>
-
+        <!--  konten admin -->
         <h1>Tambah Mobil</h1>
         <div class="container">
             <form action="proses_tambah.php" method="post" enctype="multipart/form-data">
@@ -161,6 +228,26 @@
             <br>
             <a class="btn-back" href="dashboard.php">Kembali</a>
         </div>
+    </div>
+    <form method="post" action="">
+        Nama Mobil: 
+        <select name="id_mobil">
+            <?php while($row = $result_mobil->fetch_assoc()) { ?>
+                <option value="<?php echo $row['id_mobil']; ?>"><?php echo $row['nama_mobil']; ?></option>
+            <?php } ?>
+        </select><br>
+        
+        Nama costumer: 
+        <select name="id_costumer">
+            <?php while($row = $result_costumer->fetch_assoc()) { ?>
+                <option value="<?php echo $row['id_costumer']; ?>"><?php echo $row['nama_costumer']; ?></option>
+            <?php } ?>
+        </select><br>
+
+        Tanggal Sewa: <input type="date" name="tgl_sewa"><br>
+        Tanggal Kembali: <input type="date" name="tgl_kembali"><br>
+        <input type="submit" value="Tambah Transaksi">
+    </form> 
     </div>
 
     <script>
