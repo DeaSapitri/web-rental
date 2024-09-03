@@ -28,7 +28,7 @@ $result = $conn->query($sql);
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #333;
+            background-color: #4b7da3;
             padding-top: 20px;
             overflow-x: hidden;
         }
@@ -97,8 +97,8 @@ $result = $conn->query($sql);
 <body>
 
     <div class="sidebar">
-        <a href="admin.php">Dashboard</a>
-        <a href="data_mobil.php">Data Mobil</a>
+        <a href="dashboard.php">Dashboard</a>
+        <a href="datamobil.php">Data Mobil</a>
         <a href="#customer">Data Customer</a>
         <a href="tambahtrans.php">Data Transaksi</a>
         <a href="logout.php" onclick="confirmLogout(event)">Logout</a>
@@ -122,7 +122,7 @@ $result = $conn->query($sql);
             </div>
         </div>
         <h1>Data Mobil</h1>
-        <a class="btn" href="tambah1.php">+ Tambah Data Mobil</a>
+        <a class="btn" href="tambah_mobil.php">+ Tambah Data Mobil</a>
         <table>
             <thead>
                 <tr>

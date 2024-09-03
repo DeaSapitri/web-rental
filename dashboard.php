@@ -164,9 +164,9 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
     <div class="sidebar">
         <a href="dashboard.php">Dashboard</a>
-        <a href="tambah1.php">Data Mobil</a>
+        <a href="datamobil.php">Data Mobil</a>
         <a href="datacostumer.html">Data Customer</a>
-        <a href="tambah_transaksi.php">Data Transaksi</a>
+        <a href="transaksi.php">Data Transaksi</a>
         <a href="logout.php" onclick="confirmLogout(event)">Logout</a>
     </div>
 
@@ -188,7 +188,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             </div>
         </div>
         <h1>Admin Dashboard</h1>
-        <p>Selamat datang di halaman admin.</p>
+        <p>Selamat datang di website Rental Mobil Dea.</p>
         <!--  konten admin -->
         
     </div>

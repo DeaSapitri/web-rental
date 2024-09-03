@@ -174,7 +174,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         <div class="navbar">
             <div class="menu">
                 <a href="index.php">Home</a>
-                <a href="datamobil2.php">Mobil</a>
+                <a href="datamobil.php">Mobil</a>
                 <a href="about.php">About</a>
             </div>
             <div class="user-actions">
@@ -219,9 +219,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
                 <label for="harga">Harga</label>
                 <input type="number" name="harga" id="harga" required>
-
-                <label for="gambar">Upload Gambar</label>
-                <input type="file" id="gambar" name="gambar" required>
 
                 <input type="submit" value="Tambah">
             </form>
