@@ -1,21 +1,15 @@
 <?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "demo");
- 
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+include 'koneksi.php'; //koneksi database
+//Cek jika ID mobil diterima dari URL
+if (isset($_GET['id'])) {
+    $id_mobil = $_GET['id'];
+    //Query untuk menghapus data mobil
+    $sql = "DELETE FROM mobil WHERE id_mobil = $id_mobil";
+    if ($conn->query($sql) === TRUE) {
+        header("Location: datamobil.php"); // Redirect setelah
+        exit;
+    } else {
+        echo "Gagal menghapus: ".$conn->error;
+    }
 }
- 
-// Attempt delete query execution
-$sql = "DELETE FROM kendaraan WHERE first_name='John'";
-if(mysqli_query($link, $sql)){
-    echo "Records were deleted successfully.";
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-}
- 
-// Close connection
-mysqli_close($link);
 ?>

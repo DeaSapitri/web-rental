@@ -4,7 +4,7 @@ include 'koneksi.php';
 $sql = "SELECT transaksi.id_transaksi, mobil.nama_mobil, costumer.nama_costumer, transaksi.tgl_sewa, transaksi.tgl_kembali
         FROM transaksi
         JOIN mobil ON transaksi.id_mobil = mobil.id_mobil
-        JOIN costumer ON transaksi.id_costumer = costumer.id_costumer";
+        JOIN costumer ON transaksi.id_costumer = costumer.id_costumer ORDER BY id_transaksi";
 
 $result = $conn->query($sql);
 ?>

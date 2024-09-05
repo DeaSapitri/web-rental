@@ -10,7 +10,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 // Ambil data mobil dari database
 $sql = "SELECT m.id_mobil, m.nama_mobil, m.warna, m.tahun, m.gambar, m.harga, j.nama_kategori 
         FROM mobil m 
-        JOIN kategori j ON m.id_kategori = j.id_kategori";
+        JOIN kategori j ON m.id_kategori = j.id_kategori ORDER BY id_mobil";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -100,7 +100,7 @@ $result = $conn->query($sql);
         <a href="dashboard.php">Dashboard</a>
         <a href="datamobil.php">Data Mobil</a>
         <a href="#customer">Data Customer</a>
-        <a href="tambahtrans.php">Data Transaksi</a>
+        <a href="transaksi.php">Data Transaksi</a>
         <a href="logout.php" onclick="confirmLogout(event)">Logout</a>
     </div>
 
@@ -132,20 +132,22 @@ $result = $conn->query($sql);
                     <th>Tahun</th>
                     <th>Harga</th>
                     <th>Kategori</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row['id_mobil'] . "</td>";
-                        echo "<td>" . $row['nama_mobil'] . "</td>";
-                        echo "<td>" . $row['warna'] . "</td>";
-                        echo "<td>" . $row['tahun'] . "</td>";
-                        echo "<td>" . $row['harga'] . "</td>";
-                        echo "<td>" . $row['nama_kategori'] . "</td>";
-                        echo "</tr>";
+                        echo "<tr>
+                        <td>" . $row["id_mobil"] . "</td>
+                        <td>" . $row["nama_mobil"] . "</td>
+                        <td>" . $row["warna"] . "</td>
+                        <td>" . $row["tahun"] . "</td>
+                        <td>" . $row["harga"] . "</td>
+                        <td>" . $row["nama_kategori"] . "</td>
+                        <td><a href='edit_mobil.php?id=" . $row["id_mobil"] . "'>Edit</a> | <a href='hapus_mobil.php?id=" . $row["id_mobil"] . "'>Hapus</a></td>
+                    </tr>";
                     }
                 } else {
                     echo "<tr><td colspan='7'>Tidak ada data mobil yang ditemukan</td></tr>";

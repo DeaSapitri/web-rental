@@ -1,25 +1,56 @@
-<?=template_header('Read')?>
+<?php
+include 'koneksi.php'; //Menghubungkan ke database
+//mengecek apakah ID mobil diterima dari URL
+if (isset($_GET['id'])) {
+    $id_mobil = $_GET['id']; //mengambil IDmobil dari URL
 
-<div class="content update">
-	<h2>Update Contact #<?=$contact['id']?></h2>
-    <form action="update.php?id=<?=$contact['id']?>" method="post">
-        <label for="id">ID</label>
-        <label for="name">Name</label>
-        <input type="text" name="id" placeholder="1" value="<?=$contact['id']?>" id="id">
-        <input type="text" name="name" placeholder="John Doe" value="<?=$contact['name']?>" id="name">
-        <label for="email">Email</label>
-        <label for="phone">Phone</label>
-        <input type="text" name="email" placeholder="johndoe@example.com" value="<?=$contact['email']?>" id="email">
-        <input type="text" name="phone" placeholder="2025550143" value="<?=$contact['phone']?>" id="phone">
-        <label for="title">Title</label>
-        <label for="created">Created</label>
-        <input type="text" name="title" placeholder="Employee" value="<?=$contact['title']?>" id="title">
-        <input type="datetime-local" name="created" value="<?=date('Y-m-d\TH:i', strtotime($contact['created']))?>" id="created">
-        <input type="submit" value="Update">
+    //mengambil data mobil berdasarkan ID dari database
+    $sql = "SELECT * FROM mobil WHERE id_mobil = $id_mobil";
+    $result = $conn->query($sql);
+    $mobil = $result->fetch_assoc();
+
+
+    //mengecek apakah form telah dikirim
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //mengambil data yang diinputkan pengguna dari form
+        $nama_mobil = $_POST['nama_mobil'];
+        $warna = $_POST['warna'];
+        $tahun = $_POST['tahun'];
+        $harga = $_POST['harga'];
+        $id_kategori = $_POST['id_kategori'];
+
+        //mengupdate data mobil dari database berdasarkan input dari form
+        $sql = "UPDATE mobil SET
+        nama_mobil='$nama_mobil',
+        warna='$warna',
+        tahun='$tahun',
+        harga='$harga',
+        id_kategori='$id_kategori'
+        WHERE id_mobil=$id_mobil";
+
+        //mengecek apakah proses update berhasil
+        if ($conn->query($sql) === TRUE) {
+            header("Location: datamobil.php"); 
+            exit;
+        } else {
+            //menampilkan pesan error jika gagal
+            echo "Error updating record:" . $conn->error;
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data Mobil</title>
+</head>
+<body>
+    <h2>Edit Data Mobil</h2>
+    <form action="POST">
+        <!--menampilkan form dengan data mobil
     </form>
-    <?php if ($msg): ?>
-    <p><?=$msg?></p>
-    <?php endif; ?>
-</div>
-
-<?=template_footer()?>
+</body>
+</html>

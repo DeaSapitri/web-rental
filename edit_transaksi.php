@@ -9,10 +9,10 @@
 	<?php
 	include 'koneksi.php';
 	$id = $_GET['id_transaksi'];
-	$data = mysqli_query($koneksi,"select * from kendaraan where id='$id'");
+	$data = mysqli_query($koneksi,"select * from transaksi where id='$id'");
 	while($d = mysqli_fetch_array($data)){
 		?>
-		<form method="post" action="edit_transaksi.php">
+		<form method="post" action="transaksi.php">
 			<table>
 				<tr>			
 					<td>id_transaksi</td>
