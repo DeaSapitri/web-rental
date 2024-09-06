@@ -49,8 +49,17 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <h2>Edit Data Mobil</h2>
-    <form action="POST">
-        <!--menampilkan form dengan data mobil
+    <form method="POST">
+        <!--menampilkan form dengan data mobil-->
+        Nama Mobil: <input type="text" name="nama_mobil" value="<?php echo $mobil['nama_mobil']; ?>"><br>
+        Warna: <input type="text" name="warna" value="<?php echo $mobil['warna']; ?>"><br>
+        Tahun: <input type="text" name="tahun" value="<?php echo $mobil['tahun']; ?>"><br>
+        Harga: <input type="text" name="harga" value="<?php echo $mobil['harga']; ?>"><br>
+        Kategori: <input type="text" name="id_kategori" value="<?php echo $mobil['id_kategori']; ?>"><br>
+
+
+        <!--tombol untuk perubahan-->
+        <input type="submit" value="Simpan Perubahan">
     </form>
 </body>
 </html>

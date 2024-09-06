@@ -91,6 +91,26 @@ $result = $conn->query($sql);
             display: inline-block;
             margin-top: 10px;
         }
+
+        .action-btn {
+            background-color: darkcyan;
+            text-decoration: none;
+            color: white;
+            border: 1px solid blue;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        .actioan-btn:delete {
+            background-color: darkcyan;
+            text-decoration: none;
+            color: white;
+            border: 1px solid blue;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -146,7 +166,10 @@ $result = $conn->query($sql);
                         <td>" . $row["tahun"] . "</td>
                         <td>" . $row["harga"] . "</td>
                         <td>" . $row["nama_kategori"] . "</td>
-                        <td><a href='edit_mobil.php?id=" . $row["id_mobil"] . "'>Edit</a> | <a href='hapus_mobil.php?id=" . $row["id_mobil"] . "'>Hapus</a></td>
+                        <td>
+                        <a class='action-btn' href='edit_mobil.php?id=" . $row['id_mobil'] . $row['id_mobil'] . "'>Edit</a>
+                        <a class='action-btn delete' href='hapus_mobil.php?id=" . $row['id_mobil']  . $row['id_mobil'] . "' onclick='return confirm(\"Yakin ingin menghapus data ini?\");'>Hapus</a>
+                        </td>
                     </tr>";
                     }
                 } else {

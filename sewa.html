@@ -132,3 +132,8 @@ if (empty($nama_mobil) || empty($warna) || empty($tahun) || empty($id_kategori) 
 	$no++;
 	}
 ?>
+
+
+
+//tombol edit hapusmobil
+<td><a href='edit_mobil.php?id=" . $row["id_mobil"] . "'>Edit</a> | <a href='hapus_mobil.php?id=" . $row["id_mobil"] . "'>Hapus</a></td>

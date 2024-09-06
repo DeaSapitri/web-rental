@@ -86,6 +86,16 @@ $result = $conn->query($sql);
             display: inline-block;
             margin-top: 10px;
         }
+
+        .action-btn {
+            background-color: darkcyan;
+            text-decoration: none;
+            color: white;
+            border: 1px solid blue;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -122,7 +132,7 @@ $result = $conn->query($sql);
             <tbody>
                 <?php
                 if ($result->num_rows > 0) {
-                    echo "<table border='1'><tr><th>ID Transaksi</th><th>Merk Mobil</th><th>Nama costumer</th><th>Tanggal Sewa</th><th>Tanggal Kembali</th><th>Aksi</th></tr>";
+                    echo "<table border='1'><tr><th>ID Transaksi</th><th>Merk Mobil</th><th>Nama costumer</th><th>Tanggal Sewa</th><th>Tanggal Kembali</th></tr>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
             <td>" . $row["id_transaksi"] . "</td>
@@ -130,7 +140,7 @@ $result = $conn->query($sql);
             <td>" . $row["nama_costumer"] . "</td>
             <td>" . $row["tgl_sewa"] . "</td>
             <td>" . $row["tgl_kembali"] . "</td>
-            <td><a href='edit_transaksi.php?id=" . $row["id_transaksi"] . "'>Edit</a> | <a href='hapus_transaksi.php?id=" . $row["id_transaksi"] . "'>Hapus</a></td>
+            <td><a class='action-btn' href='hapus_transaksi.php?id=" . $row["id_transaksi"] . "'>Hapus</a></td>
         </tr>";
                     }
                     echo "</table>";
