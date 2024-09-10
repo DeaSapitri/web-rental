@@ -198,7 +198,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                 <input type="text" id="warna" name="warna" required>
 
                 <label for="tahun">Tahun</label>
-                <input type="number" id="tahun" name="tahun" required>
+                <input type="text" id="tahun" name="tahun" required>
 
                 <label for="id_kategori">Jenis</label>
                 <select id="id_kategori" name="id_kategori" required>

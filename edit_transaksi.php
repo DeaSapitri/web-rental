@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     //mengambil data mobil berdasarkan ID dari database
     $sql = "SELECT * FROM transaksi WHERE id_transaksi = $id_transaksi";
     $result = $conn->query($sql);
-    $mobil = $result->fetch_assoc();
+    $transaksi = $result->fetch_assoc();
 
 
     //mengecek apakah form telah dikirim

@@ -167,7 +167,7 @@ $result = $conn->query($sql);
                         <td>" . $row["harga"] . "</td>
                         <td>" . $row["nama_kategori"] . "</td>
                         <td>
-                        <a class='action-btn' href='edit_mobil.php?id=" . $row['id_mobil'] . $row['id_mobil'] . "'>Edit</a>
+                        <a class='action-btn' href='edit_mobil.php?id="  . $row['id_mobil'] . "'>Edit</a>
                         <a class='action-btn delete' href='hapus_mobil.php?id=" . $row['id_mobil']  . $row['id_mobil'] . "' onclick='return confirm(\"Yakin ingin menghapus data ini?\");'>Hapus</a>
                         </td>
                     </tr>";

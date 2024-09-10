@@ -132,7 +132,7 @@ $result = $conn->query($sql);
             <tbody>
                 <?php
                 if ($result->num_rows > 0) {
-                    echo "<table border='1'><tr><th>ID Transaksi</th><th>Merk Mobil</th><th>Nama costumer</th><th>Tanggal Sewa</th><th>Tanggal Kembali</th></tr>";
+                    echo "<table border='1'><tr><th>ID Transaksi</th><th>Merk Mobil</th><th>Nama costumer</th><th>Tanggal Sewa</th><th>Tanggal Kembali</th><th>Aksi</th></tr>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
             <td>" . $row["id_transaksi"] . "</td>
