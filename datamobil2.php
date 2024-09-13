@@ -10,7 +10,7 @@
             text-align: center;
             width: 150px;
             height: 200px;
-            border-radius: 10px;
+            border-radius: 5px;
             margin: 10px;
             padding: 5px;
             float: left;
